@@ -1,0 +1,26 @@
+# Node & build artifacts
+node_modules
+**/node_modules
+**/node_modules/*
+npm-debug.log
+pnpm-lock.yaml
+*.local
+
+# Vite / React caches
+frontend/dist
+frontend/.vite
+
+# Typescript
+**/*.tsbuildinfo
+
+# Misc
+.git
+.gitignore
+Dockerfile
+docker-compose.yml
+*.md
+**/.env
+
+
+# optional, if you want a clean install
+**/package-lock.json

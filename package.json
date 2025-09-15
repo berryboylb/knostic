@@ -1,0 +1,20 @@
+{
+  "name": "knostic-app",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Full-stack CSV management app (React + Express)",
+  "author": "Olorunfemi Daramola",
+  "license": "MIT",
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "install:all": "npm install --workspaces",
+    "dev": "npm run install:all && npm run start:dev --workspace backend & npm run dev --workspace frontend",
+    "build": "npm run build --workspace backend && npm run build --workspace frontend",
+    "test": "npm run test --workspaces",
+    "lint": "npm run lint --workspaces",
+    "start": "npm run start:prod --workspace backend"
+  }
+}

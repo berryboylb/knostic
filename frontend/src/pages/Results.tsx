@@ -158,7 +158,6 @@ export function Results() {
   ) {
     return (
       <div className="space-y-6">
-        {JSON.stringify(allData, null, 2)}
         <div className="flex items-center gap-4">
           <Button variant="outline" size="sm" asChild>
             <Link to="/">

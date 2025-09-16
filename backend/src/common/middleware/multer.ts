@@ -1,6 +1,6 @@
-import multer from "multer";
-import path from "path";
-import type { Request } from "express";
+import multer from 'multer';
+import path from 'path';
+import type { Request } from 'express';
 
 const storage = multer.memoryStorage();
 
@@ -9,10 +9,10 @@ const fileFilter = (
   file: Express.Multer.File,
   cb: multer.FileFilterCallback
 ): void => {
-  if (path.extname(file.originalname).toLowerCase() === ".csv") {
+  if (path.extname(file.originalname).toLowerCase() === '.csv') {
     cb(null, true);
   } else {
-    cb(new Error("Only CSV files are allowed"));
+    cb(new Error('Only CSV files are allowed'));
   }
 };
 

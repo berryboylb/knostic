@@ -351,8 +351,8 @@ export class FileService {
     hasClassifications: boolean;
     error?: string;
   } {
-    const hasStrings = !!csvData.strings?.data.length;
-    const hasClassifications = !!csvData.classifications?.data.length;
+    const hasStrings = !!csvData?.strings?.data?.length;
+    const hasClassifications = !!csvData?.classifications?.data?.length;
 
     let error: string | undefined;
     if (!hasStrings && !hasClassifications) {
@@ -605,10 +605,7 @@ export class FileService {
       if (!isValidFileType(fileType)) {
         return ServiceResponse.failure(
           "Invalid file type",
-          {
-            message:
-              'fileType must be either "strings" or "classifications" (based on data structure, not filename)',
-          },
+          null,
           StatusCodes.BAD_REQUEST
         );
       }
@@ -618,9 +615,7 @@ export class FileService {
       if (!csvEntry || csvEntry.data.length === 0) {
         return ServiceResponse.failure(
           "No data found",
-          {
-            message: `No ${fileType} data structure has been uploaded yet`,
-          },
+          null,
           StatusCodes.BAD_REQUEST
         );
       }

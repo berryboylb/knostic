@@ -1,18 +1,7 @@
 import type { Request, RequestHandler, Response } from "express";
 
 import { fileService } from "@/api/file/fileService";
-import { ExportMetadata } from '../../types/csv.types';
-import type {
-  StringsCSVRow,
-  ClassificationsCSVRow,
-  UploadResponse,
-  GetDataResponse,
-  ErrorResponse,
-  GetDataParams,
-  DataUpdateParams,
-  UpdateDataResponse,
-  UpdateDataRequest,
-} from "@/types/csv.types";
+import type { GetDataParams } from "@/types/csv.types";
 
 class FileController {
   public getFiles: RequestHandler = async (_req: Request, res: Response) => {

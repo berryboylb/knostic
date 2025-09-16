@@ -10,7 +10,9 @@ import type {
   ClassificationsCSVRow,
 } from "@/types";
 
-const API_BASE = import.meta.env.DEV ? "/api" : "http://localhost:8080";
+const API_BASE = import.meta.env.DEV
+  ? "/api"
+  : "https://knostic-app-production.up.railway.app";
 
 // class APIError extends Error {
 //   constructor(message: string, public status: number, public details?: string) {

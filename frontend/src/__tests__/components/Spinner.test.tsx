@@ -15,7 +15,7 @@ describe('Spinner', () => {
   it('has correct accessibility attributes', () => {
     render(<Spinner />);
     
-    const spinnerContainer = screen.getByText((content, element) => {
+    const spinnerContainer = screen.getByText((_, element) => {
       return element?.classList.contains('animate-spin') || false;
     });
     expect(spinnerContainer).toBeInTheDocument();

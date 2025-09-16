@@ -38,12 +38,10 @@ app.use(requestLogger);
 // Swagger UI
 app.use("/api-docs", openAPIRouter);
 
-
 // Routes
 app.use("/health-check", healthCheckRouter);
 app.use("/users", userRouter);
 app.use("/files", fileRouter);
-
 
 // Serve static files from backend/dist/public
 app.use(express.static(path.join(__dirname, "public")));

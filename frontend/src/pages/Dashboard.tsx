@@ -10,7 +10,7 @@ import { Database } from "lucide-react";
 
 export function Dashboard() {
   return (
-    <div className="container mx-auto space-y-8 my-10 lg:my-20">
+    <div className="container lg:mx-auto space-y-8 p-5 xl:p-0">
       {/* Welcome Header */}
       <div className="text-center space-y-4">
         <div className="flex justify-center">

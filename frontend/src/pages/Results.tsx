@@ -1,7 +1,7 @@
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import { api } from "@/services/api";
-import { downloadBlob } from "@/lib/utils";
+import { cn, downloadBlob } from "@/lib/utils";
 import {
   Card,
   CardContent,
@@ -48,6 +48,7 @@ export function Results() {
   const {
     data: allData,
     isLoading,
+    isFetching,
     error,
     refetch,
   } = useQuery({
@@ -198,32 +199,40 @@ export function Results() {
     | undefined;
 
   return (
-    <div className="space-y-6 my-10 lg:my-20 container mx-auto">
+    <div className="space-y-6  lg:my-20 container mx-auto p-5 xl:p-0">
       {/* Header */}
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-4">
-          <Button variant="outline" size="sm" asChild>
+
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
+          <Button variant="outline" size="sm" asChild className="w-fit">
             <Link to="/">
               <ArrowLeft className="h-4 w-4 mr-2" />
-              Back to Upload
+              <span className="hidden sm:inline">Back to Upload</span>
+              <span className="sm:hidden">Back</span>
             </Link>
           </Button>
           <div>
-            <h1 className="text-3xl font-bold">Data Results</h1>
-            <p className="text-muted-foreground">Your uploaded CSV data</p>
+            <h1 className="text-2xl font-bold sm:text-3xl">Data Results</h1>
+            <p className="text-sm text-muted-foreground sm:text-base">
+              Your uploaded CSV data
+            </p>
           </div>
         </div>
 
-        <div className="flex items-center gap-2">
-          <Button variant="outline" size="sm" onClick={() => refetch()}>
-            <RefreshCw className="h-4 w-4 mr-2" />
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-2">
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={async () => await refetch()}
+            className="w-full sm:w-auto"
+          >
+            <RefreshCw
+              className={cn(
+                "h-4 w-4 mr-2",
+                isLoading || (isFetching && "animate-spin")
+              )}
+            />
             Refresh
-          </Button>
-          <Button variant="outline" size="sm" asChild>
-            <Link to="/validate">
-              <CheckCircle className="h-4 w-4 mr-2" />
-              Validate
-            </Link>
           </Button>
         </div>
       </div>
@@ -346,7 +355,7 @@ export function Results() {
             className="w-full"
             onValueChange={setCurrentTab}
           >
-            <TabsList className="grid w-full grid-cols-2">
+            <TabsList className="lg:grid w-full lg:grid-cols-2 overflow-x-scroll">
               <TabsTrigger value="strings" disabled={!stringsData}>
                 Strings Data ({allData?.responseObject?.strings?.rowCount || 0})
               </TabsTrigger>

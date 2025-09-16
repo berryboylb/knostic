@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
 import { queryClient } from "@/provider/query";
@@ -84,7 +84,7 @@ export function UploadSection() {
   });
 
   const removeFile = (id: number) => {
-    setFiles((files) => files.filter((file, index) => index !== id));
+    setFiles((files) => files.filter((_, index) => index !== id));
   };
 
   const handleUpload = () => {

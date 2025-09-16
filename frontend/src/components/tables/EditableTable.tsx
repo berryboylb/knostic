@@ -198,7 +198,7 @@ export function EditableTable({
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     setEditedData((prev: any) =>
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      prev.filter((_, index: any) => index !== rowIndex)
+      prev.filter((_: any, index: any) => index !== rowIndex)
     );
     setHasChanges(true);
   };

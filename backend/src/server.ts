@@ -27,12 +27,6 @@ app.use(cors({ origin: env.CORS_ORIGIN, credentials: true }));
 app.use(helmet());
 app.use(rateLimiter);
 
-app.use((req, _res, next) => {
-  if (req.body === undefined) req.body = {};
-  next();
-});
-
-
 app.locals.csvData = {
   strings: null,
   classifications: null,

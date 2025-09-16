@@ -10,7 +10,7 @@ import type {
   ClassificationsCSVRow,
 } from "@/types";
 
-const API_BASE = "/api";
+const API_BASE = import.meta.env.DEV ? "/api" : "http://localhost:8080";
 
 // class APIError extends Error {
 //   constructor(message: string, public status: number, public details?: string) {
@@ -86,7 +86,7 @@ export const api = {
     validateReferences = true
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   ): Promise<any> {
-    const response = await fetch(`${API_BASE}/files/${fileType}`, {
+    const response = await fetch(`${API_BASE}/${fileType}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ data, validateReferences }),

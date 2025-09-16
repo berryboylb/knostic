@@ -51,7 +51,7 @@ export class CSVParser {
 
     const headers = Object.keys(data[0]!);
     const missingFields = requiredFields.filter(
-      (field) => !headers.includes(field)
+      (field) => !headers.includes(field as string)
     );
 
     if (missingFields.length) {
@@ -79,7 +79,7 @@ export class CSVParser {
 
     const headers = Object.keys(data[0]!);
     const missingFields = requiredFields.filter(
-      (field) => !headers.includes(field)
+      (field) => !headers.includes(field as string)
     );
 
     if (missingFields.length) {

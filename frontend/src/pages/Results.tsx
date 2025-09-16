@@ -198,7 +198,7 @@ export function Results() {
     | undefined;
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 my-10 lg:my-20 container mx-auto">
       {/* Header */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-4">

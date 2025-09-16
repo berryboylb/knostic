@@ -134,7 +134,7 @@ export const validationCheckSchema = z.object({
   canValidate: z.boolean(),
   hasStrings: z.boolean(),
   hasClassifications: z.boolean(),
-  error: z.string().nullable().optional(), // can be a string, null, or omitted
+  error: z.string().nullable().optional(), 
 });
 
 export const ResultSchema = validationCheckSchema.extend({
@@ -144,7 +144,7 @@ export const ResultSchema = validationCheckSchema.extend({
     stringsFilename: z.string().optional().nullable(),
     classificationsFilename: z.string().optional().nullable(),
   }),
-  checkedAt: z.string().datetime(), // ISO timestamp
+  checkedAt: z.string(), // ISO timestamp
 });
 
 export const ExportResponseSchema = z.object({
@@ -152,14 +152,13 @@ export const ExportResponseSchema = z.object({
     strings: z.boolean(),
     classifications: z.boolean(),
   }),
-  summary: z.any(), // replace with a more specific schema if you know the exact shape of summary.dataSummary
-  totalRows: z.number(),
+  summary: z.any(), 
   downloadLinks: z.object({
     strings: z.string().url().nullable(),
     classifications: z.string().url().nullable(),
     batch: z.string().url().nullable(),
   }),
-  generatedAt: z.string().datetime(),
+  generatedAt: z.string(),
 });
 
 export const ExportBatchResponseSchema = z.object({
@@ -182,16 +181,16 @@ export const ExportBatchResponseSchema = z.object({
     .optional(), // if batchResult.files can be undefined
   batchSize: z.number().optional(),
   totalRows: z.number().optional(),
-  generatedAt: z.string().datetime(),
+  generatedAt: z.string(),
 });
 
 export const GetDataResponseSchema = z.object({
   fileType: z.enum(["strings", "classifications"]),
   originalFilename: z.string(),
-  data: z.array(z.record(z.string(), z.string())), // each row is a record of string keys and string values
+  data: z.array(z.record(z.string(), z.string())), 
   rowCount: z.number(),
   headers: z.array(z.string()),
-  lastModified: z.string().datetime(), // ISO 8601 timestamp
+  lastModified: z.string(), 
 });
 
 export const FileMetadataSchema = z
@@ -214,7 +213,7 @@ export const ExportMetadataResponseSchema = z.object({
     .optional(), 
   batchSize: z.number().optional(),
   totalRows: z.number().optional(),
-  generatedAt: z.string().datetime(),
+  generatedAt: z.string(),
 });
 
 
@@ -232,5 +231,5 @@ export const UpdateDataResponseSchema = z.object({
     })
     .optional(),
   data: z.array(z.union([stringsCSVRowSchema, classificationsCSVRowSchema])),
-  lastModified: z.string().datetime(),
+  lastModified: z.string(),
 });

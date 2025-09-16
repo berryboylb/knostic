@@ -118,3 +118,62 @@ knostic-app/
     Build the Docker image: docker build -t knostic-app .
 
     Expose port 8080.
+
+8. Simple User Guide 📝
+    1️⃣ Visit the App
+
+    [Visit](https://knostic-app-production.up.railway.app)
+
+
+    2️⃣ Upload Your Files
+
+    Drag & drop your CSV files or click to select files from your computer.
+
+    ✅ Supported file types: Strings CSV & Classifications CSV.
+
+    3️⃣ Submit Files
+
+    Click Upload to send your files.
+
+    You will be redirected to the Results page.
+
+    4️⃣ Edit & Validate Data
+
+    Click Edit Mode to:
+
+    View validation errors.
+
+    Modify table entries.
+
+    Save changes safely.
+
+    5️⃣ View Quick Stats
+
+    At the top of the Results page, see an overview of both files:
+
+    Total rows
+
+    Valid/invalid counts
+
+    Quick statistics
+
+    Use the Refresh button to reload the data.
+
+    6️⃣ Switch Between Tables
+
+    Use the tabs to toggle between:
+
+    Strings table
+
+    Classifications table
+
+    7️⃣ Download Your Files
+
+    Scroll to the bottom of the page to:
+
+    Download individual modified files.
+
+    OR download both files at once.
+
+
+
